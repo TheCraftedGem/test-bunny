@@ -14,19 +14,14 @@ class NewIdeaForm extends Component {
     this.setState({[name]: value})
   }
 
-  // render() {
-  //   return (
-  //     <form>
-  //       <input name="name" value={this.state.name} onChange={this.handleNameChange}  />
-  //       <input name="description" value={this.state.description} />
-  //       <button>Submit</button>
-  //     </form>
-  //   )
-  // }
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.addIdea(this.state)
+  }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
           name="name"
           value={this.state.name}
@@ -37,7 +32,7 @@ class NewIdeaForm extends Component {
           value={this.state.description}
           onChange={this.handleChange}
         />
-        <button>Submit</button>
+        <button> Submit </button>
       </form>
     )
   }
